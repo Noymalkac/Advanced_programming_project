@@ -1,8 +1,17 @@
+/**
+ * ParallelAgent.java
+ * This file is part of the project_biu graph management system.
+ * It implements an Agent that processes messages in parallel using a dedicated worker thread.
+ */
 package graph;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
+/**
+ * ParallelAgent is an implementation of the Agent interface that processes messages in parallel.
+ * It uses a blocking queue to handle incoming messages and a worker thread to process them.
+ */
 public class ParallelAgent implements Agent {
     private final Agent agent;
     private final BlockingQueue<TopicMessage> queue;
@@ -19,7 +28,12 @@ public class ParallelAgent implements Agent {
             this.message = message;
         }
     }
-
+    /**
+     * Constructs a ParallelAgent with a specified queue capacity.
+     *
+     * @param agent The Agent to delegate message processing to.
+     * @param queueCapacity The capacity of the internal message queue.
+     */
     public ParallelAgent(Agent agent, int queueCapacity) {
         this.agent = agent;
         this.queue = new ArrayBlockingQueue<>(queueCapacity);
@@ -37,7 +51,12 @@ public class ParallelAgent implements Agent {
         });
         workerThread.start();
     }
-
+    /**
+     * Handles a callback from the agent, putting the message into the queue for processing.
+     *
+     * @param topic The topic of the message.
+     * @param msg The message to process.
+     */
     @Override
     public void callback(String topic, Message msg) {
         try {
@@ -46,17 +65,25 @@ public class ParallelAgent implements Agent {
             Thread.currentThread().interrupt(); // good practice
         }
     }
-
+    /**
+     * Resets the agent, which in this case resets the underlying agent.
+     */
     @Override
     public void reset() {
         agent.reset();
     }
-
+    /**
+     * Gets the name of the agent.
+     *
+     * @return The name of the agent.
+     */
     @Override
     public String getName() {
         return agent.getName();
     }
-
+    /**
+     * Closes the ParallelAgent, stopping the worker thread and cleaning up resources.
+     */
     @Override
     public void close() {
         running = false;

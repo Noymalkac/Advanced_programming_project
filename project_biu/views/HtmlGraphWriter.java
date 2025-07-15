@@ -1,3 +1,8 @@
+/**
+ * HtmlGraphWriter.java
+ * This file is part of the project_biu visualization module.
+ * It generates HTML and JavaScript code to visualize a graph using the vis.js library.
+ */
 package views;
 
 import configs.Node;
@@ -11,8 +16,21 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 
-public class HtmlGraphWriter {
+/**
+ * HtmlGraphWriter is responsible for generating HTML code that visualizes a graph structure.
+ * It uses the vis.js library to create an interactive graph representation.    
+ * The generated HTML includes nodes and edges based on the graph's structure,
+ * with specific styling for different types of nodes (e.g., topics and agents).    
+ */
 
+public class HtmlGraphWriter {
+    /**
+     * Generates HTML and JavaScript code to visualize the graph using vis.js.
+     *
+     * @param graph The graph to visualize.
+     * @return A list of strings representing the HTML lines with embedded JavaScript for visualization.
+     * @throws IOException If an I/O error occurs while reading the HTML template file.
+     */
     public static List<String> getGraphHTML(Graph graph) throws IOException {
         List<String> lines = Files.readAllLines(Paths.get("html_files/graph.html"));
         StringBuilder script = new StringBuilder();

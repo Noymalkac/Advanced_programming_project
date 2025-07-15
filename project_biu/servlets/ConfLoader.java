@@ -1,3 +1,8 @@
+/**
+ * ConfLoader.java
+ * This file is part of the project_biu servlet implementation.
+ * It handles the loading of configuration files and building HTML representations of graphs.
+ */
 package servlets;
 
 import server.RequestParser.RequestInfo;
@@ -7,7 +12,18 @@ import graph.Graph;
 import java.io.*;
 import java.util.List;
 
+/**
+ * ConfLoader is a servlet that handles the uploading of configuration files
+ * and builds a graph representation from the uploaded content.
+ */
 public class ConfLoader implements Servlet {
+    /**
+     * Handles the HTTP request to upload a configuration file.
+     *
+     * @param ri The RequestInfo object containing request details.
+     * @param toClient The OutputStream to write the response to the client.
+     * @throws IOException If an I/O error occurs while processing the request.
+     */
     @Override
     public void handle(RequestInfo ri, OutputStream toClient) throws IOException {
         String filename = ri.getParameters().get("filename");
@@ -38,7 +54,9 @@ public class ConfLoader implements Servlet {
             pw.flush();
         }
     }
-
+    /**
+     * closes the servlet, releasing any resources it holds.
+     */
     @Override
     public void close() {}
 }

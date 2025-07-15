@@ -1,134 +1,8 @@
-// package server;
-
-// import server.RequestParser.RequestInfo;
-
-// import java.io.*;
-// import java.net.*;
-// import java.util.*;
-// import java.util.concurrent.*;
-// import servlets.Servlet;
-
-// public class MyHTTPServer extends Thread implements HTTPServer {
-
-//     private final int port;
-//     private volatile boolean running = true;
-//     private final ExecutorService threadPool;
-//     private final Map<String, Map<String, Servlet>> servlets;
-
-//     private ServerSocket serverSocket;
-
-//     public MyHTTPServer(int port, int nThreads) {
-//         this.port = port;
-//         this.threadPool = Executors.newFixedThreadPool(nThreads);
-//         this.servlets = new HashMap<>();
-//         servlets.put("GET", new ConcurrentHashMap<>());
-//         servlets.put("POST", new ConcurrentHashMap<>());
-//         servlets.put("DELETE", new ConcurrentHashMap<>());
-//     }
-
-//     public void addServlet(String httpCommand, String uri, Servlet s) {
-
-
-//         // System.out.println("Registered [" + httpCommand.toUpperCase() + "] " + uri);
-//         // if (httpCommand == null || uri == null || s == null) {
-//         //     throw new IllegalArgumentException("HTTP command, URI, and servlet cannot be null");
-//         // }
-
-
-//         Map<String, Servlet> map = servlets.get(httpCommand.toUpperCase());
-//         if (map != null) {
-//             map.put(uri, s);
-//         }
-//     }
-
-//     public void removeServlet(String httpCommand, String uri) {
-//         Map<String, Servlet> map = servlets.get(httpCommand.toUpperCase());
-//         if (map != null) {
-//             map.remove(uri);
-//         }
-//     }
-
-//     public void run() {
-//         try {
-//             serverSocket = new ServerSocket(port);
-//             while (running) {
-//                 try {
-//                     Socket clientSocket = serverSocket.accept();
-//                     threadPool.submit(() -> handleClient(clientSocket));
-//                 } catch (SocketException e) {
-//                     if (running) e.printStackTrace(); // Ignore if closing
-//                 }
-//             }
-//         } catch (IOException e) {
-//             e.printStackTrace();
-//         }
-//     }
-
-//     private void handleClient(Socket clientSocket) {
-//         try (
-//             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-//             OutputStream out = clientSocket.getOutputStream()
-//         ) {
-//             RequestInfo ri = RequestParser.parseRequest(in);
-
-//             String cmd = ri.getHttpCommand().toUpperCase();
-//             String uri = ri.getUri();
-
-//             Map<String, Servlet> map = servlets.get(cmd);
-//             Servlet matched = null;
-//             int maxMatch = -1;
-
-//             if (map != null) {
-//                 for (String path : map.keySet()) {
-//                     if (uri.startsWith(path) && path.length() > maxMatch) {
-//                         matched = map.get(path);
-//                         maxMatch = path.length();
-//                     }
-//                 }
-//             }
-
-//             if (matched != null) {
-//                 matched.handle(ri, out);
-//             } else {
-//                 PrintWriter pw = new PrintWriter(out, true);
-//                 pw.println("HTTP/1.1 404 Not Found");
-//                 pw.println("Content-Type: text/plain");
-//                 pw.println();
-//                 pw.println("No matching servlet found for URI: " + uri);
-//             }
-
-//         } catch (Exception e) {
-//             e.printStackTrace();
-//         } finally {
-//             try {
-//                 clientSocket.close();
-//             } catch (IOException e) {}
-//         }
-//     }
-
-//     public void close() {
-//         running = false;
-//         try {
-//             if (serverSocket != null)
-//                 serverSocket.close();
-//         } catch (IOException e) {
-//             e.printStackTrace();
-//         }
-//         threadPool.shutdownNow();
-//         for (Map<String, Servlet> m : servlets.values()) {
-//             for (Servlet s : m.values()) {
-//                 try {
-//                     s.close();
-//                 } catch (IOException e) {
-//                     e.printStackTrace();
-//                 }
-//             }
-//         }
-//     }
-
-
-// }
-
+/**
+ * MyHTTPServer.java
+ * This file is part of the project_biu server implementation.
+ * It handles HTTP requests and manages servlets for different HTTP commands.
+ */
 
 package server;
 
@@ -141,6 +15,10 @@ import java.net.*;
 import java.util.*;
 import java.util.concurrent.*;
 
+/**
+ * MyHTTPServer is a custom HTTP server implementation that listens for incoming HTTP requests,
+ * manages servlets for different HTTP commands, and handles client connections in a thread pool.
+ */
 public class MyHTTPServer extends Thread implements HTTPServer {
     private final int port;
     private final ExecutorService pool;
@@ -148,6 +26,12 @@ public class MyHTTPServer extends Thread implements HTTPServer {
     private volatile boolean running = true;
     private ServerSocket serverSocket;
 
+    /**
+     * Constructor for MyHTTPServer.
+     *
+     * @param port The port number on which the server will listen.
+     * @param nThreads The number of threads in the thread pool for handling requests.
+     */
     public MyHTTPServer(int port, int nThreads) {
         this.port = port;
         this.pool = Executors.newFixedThreadPool(nThreads);
@@ -156,21 +40,34 @@ public class MyHTTPServer extends Thread implements HTTPServer {
         servletMap.put("POST", new ConcurrentHashMap<>());
         servletMap.put("DELETE", new ConcurrentHashMap<>());
     }
-
+    /**
+     * Adds a servlet for a specific HTTP command and URI.
+     *
+     * @param httpCommand The HTTP command (e.g., GET, POST).
+     * @param uri The URI path for which the servlet should handle requests.
+     * @param s The servlet instance to handle requests.
+     */
     public void addServlet(String httpCommand, String uri, Servlet s) {
         Map<String, Servlet> map = servletMap.get(httpCommand.toUpperCase());
         if (map != null) {
             map.put(uri, s);
         }
     }
-
+    /**
+     * Removes a servlet for a specific HTTP command and URI.
+     *
+     * @param httpCommand The HTTP command (e.g., GET, POST).
+     * @param uri The URI path for which the servlet should be removed.
+     */
     public void removeServlet(String httpCommand, String uri) {
         Map<String, Servlet> map = servletMap.get(httpCommand.toUpperCase());
         if (map != null) {
             map.remove(uri);
         }
     }
-
+    /**
+     * Starts the HTTP server.
+     */
     public void run() {
         try {
             serverSocket = new ServerSocket(port);
@@ -186,7 +83,11 @@ public class MyHTTPServer extends Thread implements HTTPServer {
             e.printStackTrace();
         }
     }
-
+    /**
+     * Handles incoming client requests.
+     *
+     * @param client The client socket to handle.
+     */
     private void handleClient(Socket client) {
         try (
             BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
@@ -229,7 +130,9 @@ public class MyHTTPServer extends Thread implements HTTPServer {
             try { client.close(); } catch (IOException ignored) {}
         }
     }
-
+    /**
+     * Closes the server and releases resources.
+     */
     public void close() {
         running = false;
         try { serverSocket.close(); } catch (IOException ignored) {}

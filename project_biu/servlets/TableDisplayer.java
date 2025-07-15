@@ -1,3 +1,8 @@
+/**
+ * TableDisplayer.java
+ * This file is part of the project_biu servlet implementation.
+ * It handles the display of a table showing the last values of topics.
+ */
 package servlets;
 
 import graph.Topic;
@@ -8,7 +13,17 @@ import java.io.*;
 import java.util.Map;
 import java.util.TreeMap;
 
+/** * TableDisplayer is a servlet that generates an HTML table displaying the last values of all topics.
+ * It retrieves the last message for each topic and formats it into a table structure.
+ */
 public class TableDisplayer implements Servlet {
+    /**
+     * Handles the HTTP request to display a table of last topic values.
+     *
+     * @param ri The RequestInfo object containing request details.
+     * @param toClient The OutputStream to write the response to the client.
+     * @throws IOException If an I/O error occurs while processing the request.
+     */
     @Override
     public void handle(server.RequestParser.RequestInfo ri, OutputStream toClient) throws IOException {
         PrintWriter pw = new PrintWriter(toClient, true);
@@ -40,7 +55,10 @@ public class TableDisplayer implements Servlet {
         pw.println("</table></body></html>");
         pw.flush();
     }
-
+    /**
+     * Closes the servlet, releasing any resources it holds.
+     * In this case, there are no resources to release, so this method is empty.
+     */
     @Override
     public void close() {}
 }

@@ -1,3 +1,8 @@
+/**
+ * TopicDisplayer.java
+ * This file is part of the project_biu servlet implementation.
+ * It handles the publishing of messages to topics and displays the graph and table of topics.
+ */
 package servlets;
 
 import server.RequestParser.RequestInfo;
@@ -14,8 +19,18 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.List;
 
+/**
+ * TopicDisplayer is a servlet that handles HTTP requests to publish messages to topics
+ * and displays the graph and table of topics with their last values.
+ */
 public class TopicDisplayer implements Servlet {
-
+    /**
+     * Handles the HTTP request to publish a message to a topic and display the graph and table.
+     *
+     * @param ri The RequestInfo object containing request details.
+     * @param toClient The OutputStream to write the response to the client.
+     * @throws IOException If an I/O error occurs while processing the request.
+     */
     @Override
     public void handle(RequestInfo ri, OutputStream toClient) throws IOException {
         System.out.println("===> TopicDisplayer invoked");
@@ -98,7 +113,10 @@ public class TopicDisplayer implements Servlet {
         pw.println("</body></html>");
         pw.flush();
     }
-
+    /**
+     * Closes the servlet, releasing any resources it holds.
+     * In this case, there are no resources to release, so this method is empty.
+     */
     @Override
     public void close() {}
 }
