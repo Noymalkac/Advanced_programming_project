@@ -42,10 +42,11 @@ Features
 ```bash
 git clone https://github.com/Noymalkac/Advanced_programming_project.git
 cd Advanced_programming_project
+```bash
+
 2. Compile the Java Source Files (on Windows)
-bash
-Copy
-Edit
+
+```bash
 for /R %f in (*.java) do @echo %f >> sources.txt
 javac -d bin @sources.txt
 del sources.txt
