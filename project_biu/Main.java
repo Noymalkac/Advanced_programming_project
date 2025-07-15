@@ -19,9 +19,12 @@ public static void main(String[] args) throws Exception{
     server.addServlet("GET", "/table", new servlets.TableDisplayer());
     server.start();
     // Automatically open browser on Windows
-    if (Desktop.isDesktopSupported()) {
+    try {
         Desktop.getDesktop().browse(new URI("http://localhost:8080/app/index.html"));
+    } catch (Exception e) {
+        System.err.println("Could not open browser: " + e.getMessage());
     }
+
 
     System.in.read();
     server.close();
