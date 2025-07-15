@@ -1,0 +1,63 @@
+package configs;
+
+import java.util.ArrayList;
+import java.util.List;
+import graph.Message;
+
+
+public class Node {
+    private String name;
+    private List<Node> edges = new ArrayList<>(); //make sure the new
+    private Message msg;
+
+    public Node(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Node> getEdges() {
+        return edges;
+    }
+
+    public void setEdges(List<Node> edges) {
+        this.edges = edges;
+    }
+
+    public Message getMessage() {
+        return msg;
+    }
+
+    
+    public void setMessage(Message msg) {
+        this.msg = msg;
+    }
+
+    public void addEdge(Node node) {
+        // edges.add(node);
+        if (!edges.contains(node)) {
+            edges.add(node);
+        }
+    }
+
+    public boolean hasCycles() {
+        return hasCycles(new ArrayList<>());
+    }
+
+    private boolean hasCycles(List<Node> visited) {
+        if (visited.contains(this)) return true;
+        visited.add(this);
+        for (Node n : edges) {
+            if (n.hasCycles(new ArrayList<>(visited))) {
+                return true;
+            }
+        }
+        return false;
+    }
+}

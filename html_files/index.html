@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agent System Interface</title>
+    <style>
+        body, html {
+            margin: 0;
+            height: 100%;
+            font-family: sans-serif;
+        }
+        #container {
+            display: flex;
+            height: 100%;
+        }
+        iframe {
+            border: none;
+            height: 100%;
+        }
+        #form-frame {
+            width: 20%;
+            background-color: #f9f9f9;
+        }
+        #graph-frame {
+            width: 60%;
+            background-color: #f0f0f0;
+        }
+        #table-frame {
+            width: 20%;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <iframe id="form-frame" src="/app/form.html"></iframe>
+        <iframe id="graph-frame" src="/app/temp.html" name="graphFrame"></iframe>
+        <iframe id="table-frame" src="/app/temp.html" name="tableFrame"></iframe>
+    </div>
+</body>
+</html>
