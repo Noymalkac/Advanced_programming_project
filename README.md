@@ -3,7 +3,7 @@
 ## Java Computational Graph System
 This project is a full-stack system simulating a computational graph using a publisher/subscriber model, parallel agent architecture, a custom configuration loader, and a lightweight HTTP server with an interactive web interface. It was developed as a final project integrating six exercises, each contributing a distinct layer of functionality—from core logic to the user interface.
 
-## The project is a combination of several exercises:
+The project is a combination of several exercises:
 
 ## Exercise 1 – Core Model & Pub/Sub Architecture
 We implemented the core model: a directed computational graph using the publisher/subscriber pattern. Topics act as channels for messages between agents. This enables building modular, reactive computation flows (e.g., camera → AI detector → gesture recognizer).
@@ -26,7 +26,7 @@ Upload configuration files, send messages to topics and view the computational g
 
 
 
-Features
+## Features
 - Upload .conf files to generate graphs
 - Send topic messages via HTML form
 - View graph updates and topic values
