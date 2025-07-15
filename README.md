@@ -64,7 +64,7 @@ java -cp bin Main
 
 The browser will open automatically at: http://localhost:8080/app/index.html
 
-## upload the config (.conf) file:
+# upload the config (.conf) file:
 you can choose your file after the browser will open.
 for exmample I loaded the config file (you can see config_files/simple.conf) with the format based on:
 configs.PlusAgent , configs.IncAgent etc.
