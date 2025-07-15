@@ -28,7 +28,7 @@ Upload configuration files, send messages to topics and view the computational g
 
 ## Features
 - Upload .conf files to generate graphs
-- Send topic messages via HTML form
+- Send topic messages via HTML form (*I prevented the possibility to update the topics if they are downstream in the culculations!)
 - View graph updates and topic values
 - Built using custom HTTP server and full-stack Java
 - HTML view with dynamic rendering using vis.js
