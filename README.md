@@ -1,4 +1,4 @@
-# Advanced Programming Project - Noy Malka Cohen: #
+<img width="1789" height="569" alt="image" src="https://github.com/user-attachments/assets/6aa44ca9-024d-4ab3-ae4d-b20a007398d6" /># Advanced Programming Project - Noy Malka Cohen: #
 
 Java Computational Graph System
 This project is a full-stack system simulating a computational graph using a publisher/subscriber model, parallel agent architecture, a custom configuration loader, and a lightweight HTTP server with an interactive web interface. It was developed as a final project integrating six exercises, each contributing a distinct layer of functionality—from core logic to the user interface.
@@ -36,9 +36,7 @@ Features
 
 📦 Installation
 1. Clone the repository
-bash
-Copy
-Edit
+```bash
 git clone https://github.com/Noymalkac/Advanced_programming_project.git
 cd Advanced_programming_project
 2. Compile the Java source files
