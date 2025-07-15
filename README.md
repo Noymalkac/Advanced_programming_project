@@ -1,6 +1,8 @@
 # Advanced Programming Project - Noy Malka Cohen: #
 
-Demo video (link): 
+Demo video (link):  [![Watch the demo](https://img.youtube.com/vi/abc123XYZ/0.jpg)](https://www.youtube.com/watch?v=abc123XYZ)
+
+This demo is unlisted — only available to those with the link.
 
 
 ## Java Computational Graph System
@@ -53,7 +55,7 @@ for /R %f in (*.java) do @echo %f >> sources.txt
 javac -d bin @sources.txt
 del sources.txt
 ```
-⚠️ Requires Java 8+ to be installed and javac to be available via PATH.
+ Requires Java 8+ to be installed and javac to be available via PATH.
 
 ## Run the Server
 Start the server:
