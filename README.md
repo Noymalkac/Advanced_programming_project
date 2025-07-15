@@ -27,7 +27,7 @@ We implemented a lightweight HTTP server to handle browser requests (GET/POST), 
 We created a dynamic web interface using HTML, JavaScript, and vis.js to:
 Upload configuration files, send messages to topics and view the computational graph and topic values in real time
 
-
+---
 
 ## Features
 - Upload .conf files to generate graphs. The graph is uploaded with the values of zero (initialization).
