@@ -42,7 +42,7 @@ Features
 ```bash
 git clone https://github.com/Noymalkac/Advanced_programming_project.git
 cd Advanced_programming_project
-```bash
+```
 
 2. Compile the Java Source Files (on Windows)
 
