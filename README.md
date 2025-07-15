@@ -62,10 +62,15 @@ java -cp bin Main
 The browser will open automatically at: http://localhost:8080/app/index.html
 
 ---
-### API Documentation – Javadoc:
+## API Documentation – Javadoc:
 This project includes full Javadoc documentation for all public classes, methods, and fields across the following packages:
+
 1.server – Custom lightweight HTTP server API.
+
 2.servlets – Servlet handlers for file uploads, graph rendering, etc.
+
 3.graph – Core pub/sub system and message-passing logic.
+
 4.configs – Agent configurations and setup logic.
+
 5.views – HTML generation utilities.
