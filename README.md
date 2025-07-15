@@ -38,3 +38,33 @@ Features
 - View graph updates and topic values
 - Built using custom HTTP server and full-stack Java
 - HTML view with dynamic rendering using vis.js
+
+📦 Installation
+1. Clone the repository
+bash
+Copy
+Edit
+git clone https://github.com/Noymalkac/Advanced_programming_project.git
+cd Advanced_programming_project
+2. Compile the Java source files
+On Windows:
+
+bash
+Copy
+Edit
+for /R %f in (*.java) do @echo %f >> sources.txt
+javac -d bin @sources.txt
+del sources.txt
+⚠️ Requires Java 8+ installed and available via javac.
+
+▶️ Run the Server
+Start the server using:
+
+bash
+Copy
+Edit
+java -cp bin Main
+The server will launch on http://localhost:8080
+
+The browser will open automatically to:
+http://localhost:8080/app/index.html
