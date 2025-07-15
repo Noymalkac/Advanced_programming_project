@@ -33,8 +33,8 @@ View the computational graph and topic values in real time
 
 
 Features
-✅ Upload .conf files to generate graphs
-✅ Send topic messages via HTML form
-✅ View graph updates and topic values
-✅ Built using custom HTTP server and full-stack Java
-✅ HTML view with dynamic rendering using vis.js
+- Upload .conf files to generate graphs
+- Send topic messages via HTML form
+- View graph updates and topic values
+- Built using custom HTTP server and full-stack Java
+- HTML view with dynamic rendering using vis.js
