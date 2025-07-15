@@ -64,6 +64,11 @@ java -cp bin Main
 (The server will start at: http://localhost:8080)
 The browser will open automatically at: http://localhost:8080/app/index.html
 
+## upload the config (.conf) file:
+you can choose your file after the browser will open.
+for exmample I loaded the config file (you can see config_files/simple.conf) with the format based on:
+configs.PlusAgent , configs.IncAgent etc.
+
 ---
 ## API Documentation – Javadoc:
 This project includes full Javadoc documentation for all public classes, methods, and fields across the following packages:
