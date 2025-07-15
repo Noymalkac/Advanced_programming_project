@@ -55,7 +55,7 @@ for /R %f in (*.java) do @echo %f >> sources.txt
 javac -d bin @sources.txt
 del sources.txt
 ```
- Requires Java 8+ to be installed and javac to be available via PATH.
+Requires Java 8+ and JDK to be installed and javac to be available via PATH.
 
 ## Run the Server
 Start the server:
