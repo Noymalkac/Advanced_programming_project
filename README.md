@@ -36,29 +36,29 @@ Features
 
 ---
 
-## 📦 Installation
+## Installation
 
-### 1. Clone the Repository
+# 1. Clone the Repository
 ```bash
 git clone https://github.com/Noymalkac/Advanced_programming_project.git
 cd Advanced_programming_project
 ```
 
-2. Compile the Java Source Files (on Windows)
+# 2. Compile the Java Source Files (on Windows)
 
 ```bash
 for /R %f in (*.java) do @echo %f >> sources.txt
 javac -d bin @sources.txt
 del sources.txt
+```
 ⚠️ Requires Java 8+ to be installed and javac to be available via PATH.
 
-▶️ Run the Server
+# Run the Server
 Start the server:
 
-bash
-Copy
-Edit
+```bash
 java -cp bin Main
 The server will start at: http://localhost:8080
+```
 
 The browser will open automatically at: http://localhost:8080/app/index.html
