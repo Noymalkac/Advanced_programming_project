@@ -38,7 +38,7 @@ Upload configuration files, send messages to topics and view the computational g
 
 ---
 
-# Installation
+# Run and install:
 
 ## 1. Clone the Repository
 ```bash
@@ -61,7 +61,7 @@ Start the server:
 ```bash
 java -cp bin Main
 ```
-(The server will start at: http://localhost:8080)
+
 The browser will open automatically at: http://localhost:8080/app/index.html
 
 ## upload the config (.conf) file:
