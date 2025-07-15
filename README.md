@@ -23,12 +23,7 @@ We implemented a lightweight HTTP server to handle browser requests (GET/POST), 
 
 Exercise 6 – View Layer in the Browser
 We created a dynamic web interface using HTML, JavaScript, and vis.js to:
-
-Upload configuration files
-
-Send messages to topics
-
-View the computational graph and topic values in real time
+Upload configuration files, send messages to topics and view the computational graph and topic values in real time
 
 
 
@@ -67,35 +62,4 @@ java -cp bin Main
 The server will launch on http://localhost:8080
 
 The browser will open automatically to:
-http://localhost:8080/app/index.html
-
-
-
-📦 Installation
-
-1. Clone the Repository
-
-git clone https://github.com/Noymalkac/Advanced_programming_project.git
-cd Advanced_programming_project
-
-2. Compile Java Source Files (Windows)
-
-for /R %f in (*.java) do @echo %f >> sources.txt
-javac -d bin @sources.txt
-del sources.txt
-
-⚠️ Requires Java 8+ to be installed and available via javac
-
-▶️ Run the Server
-
-Launch the application:
-
-java -cp bin Main
-
-The server will run at: http://localhost:8080
-
-The browser will open automatically at:
-
-
-
 http://localhost:8080/app/index.html
