@@ -1,6 +1,6 @@
 # Advanced Programming Project - Noy Malka Cohen: #
 
-Demo video link:  [[Watch here]](https://youtu.be/MB_0H3rd84U)
+Demo video link:  [Watch here](https://youtu.be/MB_0H3rd84U)
 
 This demo is unlisted , only available to those with the link.
 
