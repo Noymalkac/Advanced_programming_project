@@ -39,6 +39,10 @@ Upload configuration files, send messages to topics and view the computational g
 - HTML view with dynamic rendering using vis.js
 
 ---
+## Screenshot of the browser (after the uploading of the configuration file):
+
+![Example Image](Screenshot example.png)
+---
 
 # Run and install:
 
