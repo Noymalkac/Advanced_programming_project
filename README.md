@@ -42,7 +42,7 @@ Upload configuration files, send messages to topics and view the computational g
 ## Screenshot of the browser (after the uploading of the configuration file):
 
 
-![Example Image](Screenshot example.png)
+![Screenshot](Screenshot%20(example).png)
 
 
 ---
